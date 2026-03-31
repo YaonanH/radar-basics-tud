@@ -52,7 +52,7 @@ fc = 3.315e9;
 c = 3e8;
 lambda = c / fc;
 
-imgDir_video1 = 'C:\Users\14765\Documents\MATLAB\TUDelft\RadarI\practicum1\';
+imgDir_video1 = 'C:\Users\14765\Documents\MATLAB\TUDelft\RadarI\LAB1\';
 N_Doppler=512;
 
 frequency=-PRF/(2*PRI):(PRF/PRI)/(N_Doppler+1):PRF/(2*PRI); % how this has to be changed for diff PRF?

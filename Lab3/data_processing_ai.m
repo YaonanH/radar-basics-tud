@@ -5,6 +5,8 @@ close all;
 % Load one of the Lab 3 binary captures.
 [BScans, SweepTime, CentreFreq, Bandwidth, T] = ReadSiversBIN;
 
+%%
+
 % Radar and acquisition parameters.
 c = physconst('LightSpeed');
 lambda = c / CentreFreq;
@@ -13,7 +15,7 @@ Fs = Nsamp / SweepTime;
 fastTime = (0:Nsamp-1).' / Fs;
 % For sweep-by-sweep processing, the slow-time sampling interval is the
 % sweep repetition time.
-slowTime = (0:NSweeps-1) * SweepTime;
+slowTime = (0:NSweeps-1) * (T / NSweeps);
 
 % Remove the DC component and linear trend from each sweep.
 rawData = double(BScans);
@@ -42,6 +44,7 @@ xlabel('Fast time (ms)');
 ylabel('Amplitude');
 title('First Sweep After DC / Trend Removal');
 
+%%
 if Bandwidth > 0
     % FMCW processing: FFT along fast time gives the range profile.
     sweepSlope = Bandwidth / SweepTime;
