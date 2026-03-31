@@ -36,7 +36,7 @@ rangeMap = abs(rangeFFT);
 rangeMapdB = 20 * log10(rangeMap / max(rangeMap(:)) + eps);
 
 % Track the strongest reflector inside a reasonable pendulum range interval.
-validRange = rangeAxis >= 0.3 & rangeAxis <= 5.0;
+validRange = rangeAxis >= 0.3 & rangeAxis <= 6.0;
 rangeMapTrack = rangeMap(validRange, :);
 rangeAxisTrack = rangeAxis(validRange);
 
@@ -57,7 +57,7 @@ axis xy;
 colormap turbo;
 colorbar;
 caxis([-20 0]);
-ylim([0 5]);
+ylim([0 7]);
 xlabel('Slow time (s)');
 ylabel('Range (m)');
 title('Normalised Reflectivity (dB)');
